@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Main Course</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <link rel="stylesheet" href="../css/education.css">
+
+    <script src="../js/vue.js">
+
+    </script>
+</head>
+<body class="homepage is-preload">
+
+
+<div id="app">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header-wrapper">
+            <div class="container">
+
+                <!-- Header -->
+
+                <header id="header">
+                    <div class="inner">
+
+                        <!-- Logo -->
+                        <h1><a href="../index.html" id="logo">PERSONAL SITE</a></h1>
+
+                        <!-- Nav -->
+                        <nav id="nav">
+                            <ul>
+                                <li class="current_page_item"><a href="../index.html">Home</a></li>
+                                <li>
+                                    <a href="#">Education</a>
+                                    <ul>
+                                        <li><a href="./EducationalBackground.html">Educational Background</a></li>
+                                        <li><a href="./MainCourse.html">Main Course</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Work</a>
+                                    <ul>
+                                        <li><a href="./Internship.html">Internship</a></li>
+                                        <li><a href="./FullTimeJob.html">Full-time Job</a></li>
+                                    </ul>
+
+                                </li>
+                                <li><a href="#">Research</a>
+                                    <ul>
+                                        <li><a href="./ResearchInterests.html">Research Interests</a></li>
+                                        <li><a href="./PaperCollection.html">Paper Collection</a></li>
+                                        <li><a href="./PaperReviews.html">Paper Reviews</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./Publication.html">Publication</a></li>
+                                <li><a href="./Blog.html">Blog</a></li>
+                                <li><a href="./Life.html">Life</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </header>
+
+                <!-- Banner -->
+
+                <!--      时间线-->
+                <div class="container2">
+                    <div class="CourseDetail" v-for="item in courselist.slice(courseIndex,courseIndex+1)">
+                        <div class="courseItem">
+                            <div class="courseImg">
+                                <img :src="item.img" alt="">
+                            </div>
+                            <div class="left">
+                                <div>
+                                    <h3>{{item.title}}</h3>
+                                </div>
+                                <div>
+                                    <p>{{item.des}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <nav>
+                            <span :class="{active:curindex===index}" @click="curindex =  index"
+                                  v-for="(item,index) in navItems" :key="index" @click="change(index)">
+                              {{item}}
+                            </span>
+
+                        </nav>
+                        <article v-html="details[courseIndex][curindex]" style="text-align: left ; color: #00B050">
+
+                        </article>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            courseIndex: 0,
+            curindex: 0,
+            navItems: [
+                "Course Description",
+                "Assignment",
+                "Lecture Slides"
+            ],
+            msg: 'Hello Vue!',
+            courseDetail: {},
+            courselist: [
+                {
+                    title: 'BA810-Machine Learning for Business Analytics',
+                    img: '../images/book1.png',
+                    des: "This course will teach students how to perform hands-on analytics on such datasets using modern\n" +
+                        "machine learning techniques through series a lectures and in- class team exercises. Students will\n" +
+                        "analyze data using the R programming language, derive actionable insights from the data, and\n" +
+                        "present their findings. The goal of the course is to create an understanding of modern analytics\n" +
+                        "methods, and the types of problems they can be applied to. The course is open to students with\n" +
+                        "or without a technical background who are interested in analytics. While no prior programming\n" +
+                        "experience is required, students will learn the fundamentals of the R programming language to build\n" +
+                        "and evaluate predictive models."
+                },
+                {
+                    title: "BA865-Advanced Analytics I (Introduction to Neural Networks in Python)",
+                    img: '../images/book2.png',
+                    des: "This course will introduce you to neural networks using the Python programming language in Keras. \n" +
+                        "The course will focus on the theory of Neural Networks and Deep Learning concepts and \n" +
+                        "implementation in Keras. The material will be presented through a combination of lecture slides \n" +
+                        "interactive python notebooks (Google Colab)"
+                }
+                , {
+                    title: "BA870-Topics in Financial and Accounting Analytics",
+                    img: '../images/book3.png',
+                    des: " The primary objective of this course is to introduce Questrom MSBA\n" +
+                        "students to key financial and accounting (F&A) concepts, data sources and data \n" +
+                        "analytics tools to solve real and important F&A problems. The course builds on Questrom\n" +
+                        "MSBA students’ prior statistical, data science and programming courses for F&A \n" +
+                        "applications and problems. In addition, we introduce new complementary tools and data \n" +
+                        "sources to students’ analytics toolkit using Python applications and databases (including \n" +
+                        "BERT, ScikitLearn, Google Colab, WRDS, Yahoo Finance, and SEC_Edgar). The course \n" +
+                        "is designed for business-focused data scientists/analysts who will have to identify, gather, \n" +
+                        "parse, analyze and present F&A data to understand, solve and communicate solutions\n" +
+                        "for real business problems. The course is designed to be “hands on” and involves many \n" +
+                        "example applications and cases."
+                },
+                {
+                    title: "BA885-Advanced Analytics II",
+                    img: '../images/book4.png',
+                    des: "This course will build on BA865 by going deeper into various aspects of Neural Networks and Deep\n" +
+                        "Learning. Our programming language of choice will be Python and we will primarily use TensorFlow/Keras\n" +
+                        "for implementing Deep Learning models."
+                }
+            ],
+            details: [
+                [
+                    "    <h3>Instructor: Georgios Zervas</h3>\n" +
+                    "                            <h3>Teaching assistant: Hannah Catabia</h3>\n" +
+                    "                            <h3>Fall 2021</h3>\n" +
+                    "                            <h3>\n" +
+                    "                                Class structure\n" +
+                    "                            </h3>\n" +
+                    "                            <p>\n" +
+                    "                                All classes with be offered in person for students located in Boston. For the few students who are\n" +
+                    "                                <br>\n" +
+                    "                                currently abroad here are the Zoom links to attend class remotely: <br>\n" +
+                    "                                ❼ Section A1 (9.25-12:10am EST) <br>\n" +
+                    "                                https://bostonu.zoom.us/j/96051579418?pwd=VUt5VWEydU0vMlJISElxdGZURmM2UT09 <br>\n" +
+                    "                                ❼ Section B1 (2.30pm-5:15pm EST) <br>\n" +
+                    "                                https://bostonu.zoom.us/j/95445586826?pwd=K05FbithZFZHVXBUWnJ1NnJTRUxTQT09 <br>\n" +
+                    "                                The general structure of each class will be as follows: <br>\n" +
+                    "                                ❼ Lecture (first half of class) – every lecture will start with a 5 minute recap of the previous\n" +
+                    "                                <br>\n" +
+                    "                                lecture; if you have questions from the prior lecture (or any other prior material), this is a\n" +
+                    "                                <br>\n" +
+                    "                                great time to bring them up <br>\n" +
+                    "                                ❼ Short break <br>\n" +
+                    "                                ❼ Lab, coding session, discussion, Q&A (second half of class) <br>\n" +
+                    "                                The lab part of each class will be devoted to applying lecture concepts to real-world datasets using\n" +
+                    "                                <br>\n" +
+                    "                                R. I will expect you to work both individually and in teams to complete these labs. When you work\n" +
+                    "                                <br>\n" +
+                    "                                in teams, I ask that you work in the same teams as your group project. This way, if you complete\n" +
+                    "                                <br>\n" +
+                    "                                the daily lab assignment early, you can any remaining time to make progress on your team project.\n" +
+                    "                                <br>\n" +
+                    "                            </p>"
+                    ,
+                    //     课程介绍
+
+                    " <h3>\n" +
+                    "                                I’m presenting a part of my assignment here. I will include the complete assignment in the link at the bottom.\n" +
+                    "                            </h3>\n" +
+                    "\n" +
+                    "                            <img src=\"../Resource/course1/as1.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course1/as2.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course1/as3.png\" alt=\"\">\n" +
+                    "\n" +
+                    "                            <a href=\"../Resource/course1/BA810-groupZ.pptx\" target=\"_blank\" type=\"application/pptx\">\n" +
+                    "                                Link to the complete assignment\n" +
+                    "                            </a>",
+                    //     课程作业
+                    " <h3>\n" +
+                    "                                My partial course presentation\n" +
+                    "                            </h3>\n" +
+                    "\n" +
+                    "                            <h2>\n" +
+                    "                                Machine Learning for\n" +
+                    "                                Business Analytics (Lecture 01)\n" +
+                    "                            </h2>\n" +
+                    "                            <img src=\"../Resource/course1/c1.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course1/c2.png\" alt=\"\">\n" +
+                    "                            <a href=\"../Resource/course1/BA810_01.pdf\">\n" +
+                    "                                THE LECTURE SLIDES\n" +
+                    "                            </a>\n" +
+                    "\n" +
+                    "                            <h2>\n" +
+                    "                                Machine Learning for\n" +
+                    "                                Business Analytics (Lecture 02)\n" +
+                    "                            </h2>\n" +
+                    "                            <img src=\"../Resource/course1/c3.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course1/c4.png\" alt=\"\">\n" +
+                    "                            <a href=\"../Resource/course1/BA810_02.pdf\">\n" +
+                    "                                THE LECTURE SLIDES\n" +
+                    "                            </a>"
+                    , // 课程PPT
+
+
+                ],
+                [
+                    "   <h3>\n" +
+                    "                                Instructor: Gordon Burtch\n" +
+                    "                            </h3>\n" +
+                    "                            <h3>\n" +
+                    "                                Teaching Assistant: Jiho Lee\n" +
+                    "                            </h3>",
+
+                    //     课程信息
+                    " <h3>\n" +
+                    "                                I’m presenting a part of my assignment here. I will include the complete assignment in the link at the bottom.\n" +
+                    "                            </h3>\n" +
+                    "\n" +
+                    "                            <img src=\"../Resource/course2/as.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course2/as1.png\" alt=\"\">\n" +
+                    "\n" +
+                    "                            <a href=\"../Resource/course1/BA810-groupZ.pptx\" target=\"_blank\" type=\"application/pptx\">\n" +
+                    "                                Link to the complete assignment\n" +
+                    "                            </a>",
+
+                    //     课程PPT
+                    "  <h3>\n" +
+                    "                                My partial course presentation\n" +
+                    "                            </h3>\n" +
+                    "\n" +
+                    "                            <h2>\n" +
+                    "                                Course Logistics and Introduction\n" +
+                    "                            </h2>\n" +
+                    "                            <img src=\"../Resource/course2/c1.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course2/c2.png\" alt=\"\">\n" +
+                    "                            <a href=\"../Resource/course2/1%20-%20Course%20Intro.pdf\">\n" +
+                    "                                THE LECTURE SLIDES\n" +
+                    "                            </a>\n" +
+                    "\n" +
+                    "                            <h2>\n" +
+                    "                                Mathematical Building Blocks &\n" +
+                    "                                Working with Keras API\n" +
+                    "                            </h2>\n" +
+                    "                            <img src=\"../Resource/course2/c3.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course2/c4.png\" alt=\"\">\n" +
+                    "                            <a href=\"../Resource/course2/2%20-%20Math%20&%20Keras.pdf\">\n" +
+                    "                                THE LECTURE SLIDES\n" +
+                    "                            </a>\n" +
+                    "\n"
+                ],
+                [
+                    " <h3>\n" +
+                    "                                Instructor: Professor Peter Wysocki\n" +
+                    "                            </h3>\n" +
+                    "                            <img src=\"../Resource/course3/g1.png\" alt=\"\">",
+
+                    //     课程信息
+                    "<h3>\n" +
+                    "                                I’m presenting a part of my assignment here. I will include the complete assignment in the link at the bottom.\n" +
+                    "                            </h3>\n" +
+                    "\n" +
+                    "                            <img src=\"../Resource/course3/as1.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course3/as2.png\" alt=\"\">\n" +
+                    "\n" +
+                    "                            <a href=\"../Resource/course3/Assignment__3_Simeng_Li.pdf\" target=\"_blank\" type=\"application/pptx\">\n" +
+                    "                                Link to the complete assignment\n" +
+                    "                            </a>",
+
+                    //
+                    "         <h3>\n" +
+                    "                                My partial course presentation\n" +
+                    "                            </h3>\n" +
+                    "\n" +
+                    "                            <h2>\n" +
+                    "                                BA870: Topics in Financial &\n" +
+                    "                                Accounting Analytics\n" +
+                    "                                Lecture #7 (Tuesday, April 12, 2022)\n" +
+                    "                            </h2>\n" +
+                    "                            <img src=\"../Resource/course3/c1.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course3/c2.png\" alt=\"\">\n" +
+                    "                            <a href=\"../Resource/course3/BA870%20-%20Lecture%20_7.pdf\">\n" +
+                    "                                THE LECTURE SLIDES\n" +
+                    "                            </a>\n" +
+                    "\n" +
+                    "                            <h2>\n" +
+                    "                                BA870: Topics in Financial &\n" +
+                    "                                Accounting Analytics\n" +
+                    "                                Lecture #3 (Tuesday, March 29, 2022)\n" +
+                    "                            </h2>\n" +
+                    "                            <img src=\"../Resource/course3/C3.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course3/c4.png\" alt=\"\">\n" +
+                    "                            <a href=\"../Resource/course3/BA870-Lecture3-Slides.pdf\">\n" +
+                    "                                THE LECTURE SLIDES\n" +
+                    "                            </a>"
+
+                ],
+                [
+                    "  <h3>\n" +
+                    "                                Instructor: Nima Doroud\n" +
+                    "                            </h3>\n" +
+                    "                            <img src=\"../Resource/course4/d1.png\" alt=\"\">",
+
+                    //
+                    "    <h3>\n" +
+                    "                                I’m presenting a part of my assignment here. I will include the complete assignment in the link at the bottom.\n" +
+                    "                            </h3>\n" +
+                    "\n" +
+                    "                            <img src=\"../Resource/course4/as1.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course4/as2.png\" alt=\"\">\n" +
+                    "\n" +
+                    "                            <a href=\"../Resource/course4/01_Review.ipynb\" target=\"_blank\" type=\"application/pptx\">\n" +
+                    "                                Link to the complete assignment\n" +
+                    "                            </a>\n" +
+                    "\n" +
+                    "\n" +
+                    "\n" +
+                    "                            <img src=\"../Resource/course4/as3.png\" alt=\"\">\n" +
+                    "                            <img src=\"../Resource/course4/as4.png\" alt=\"\">\n" +
+                    "\n" +
+                    "                            <a href=\"../Resource/course4/03_Overfitting.ipynb\" target=\"_blank\" type=\"application/pptx\">\n" +
+                    "                                Link to the complete assignment\n" +
+                    "                            </a>\n"
+                    ,
+                    //
+                    "       <h3>\n" +
+                    "                                My partial course presentation\n" +
+                    "                            </h3>\n" +
+                    "\n" +
+                    "                            <h2>\n" +
+                    "                                BA885: Advanced Analytics II\n" +
+                    "                            </h2>\n" +
+                    "                            <img src=\"../Resource/course4/c1.png\" alt=\"\">\n" +
+                    "                            <a href=\"../Resource/course4/01%20-%20Introduction.pdf\">\n" +
+                    "                                THE LECTURE SLIDES\n" +
+                    "                            </a>\n" +
+                    "\n" +
+                    "                            <h2>\n" +
+                    "                                Importance of Data\n" +
+                    "                            </h2>\n" +
+                    "                            <img src=\"../Resource/course4/c2.png\" alt=\"\">\n" +
+                    "                            <a href=\"../Resource/course3/BA870-Lecture3-Slides.pdf\">\n" +
+                    "                                THE LECTURE SLIDES\n" +
+                    "                            </a>\n"
+
+
+                ]
+            ]
+        },
+        mounted() {
+        //     从数据库获取ID
+            const params = new URLSearchParams(location.search)
+            const id = params.get('id')
+            this.courseIndex = parseInt(id)
+            console.log(id)     //123
+            console.log(this.courselist.slice(this.courseIndex,this.courseIndex+1))
+
+        }
+    })
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.dropotron.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+h3 {
+  margin: 20px 0;
+  color: #009688 !important;
+  font-size: 1.5rem; }
+
+.experience {
+  border-left: 3px solid #009688;
+  padding: 0 30px;
+  margin-left: 20rem; }
+  @media (max-width: 767px) {
+    .experience {
+      margin-left: 0;
+      padding-right: 0; } }
+  .experience .item {
+    position: relative;
+    margin-bottom: 40px; }
+    .experience .item::before {
+      content: "";
+      position: absolute;
+      left: -43px;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      background-color: white;
+      border-radius: 50%;
+      border: 3px solid #009688; }
+    .experience .item::after {
+      content: "";
+      position: absolute;
+      left: -37px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background-color: #009688;
+      border-radius: 50%; }
+  .experience .company-name {
+    color: #009688; }
+  .experience .location {
+    position: absolute;
+    right: 0;
+    top: 2px; }
+    .experience .location .fa {
+      margin-right: 8px; }
+  .experience .job-info {
+    position: absolute;
+    left: -20rem;
+    top: 0; }
+    .experience .job-info .title {
+      color: #009688; }
+    @media (max-width: 767px) {
+      .experience .job-info {
+        position: static;
+        margin-bottom: 1rem; } }
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  gap: 1rem; }
+
+.courseItem {
+  display: flex;
+  flex-direction: row;
+  width: 50rem;
+  justify-content: space-between;
+  border: 1px solid #009688;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem; }
+  .courseItem img {
+    width: 10rem; }
+  .courseItem p {
+    color: white; }
+
+.CourseDetail {
+  width: 100%;
+  border: 1px solid #009688;
+  padding: 1rem; }
+  .CourseDetail .courseItem {
+    width: 100%;
+    border: 0; }
+  .CourseDetail nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; }
+    .CourseDetail nav span {
+      font-size: 0.8rem;
+      font-weight: bold;
+      background: aquamarine;
+      border-radius: 0.3rem;
+      padding: 0 1rem;
+      box-shadow: 5px 5px 10px rgba(158, 236, 27, 0.5), -1px -1px 10px rgba(42, 229, 21, 0.5);
+      cursor: pointer; }
+    .CourseDetail nav .active {
+      box-shadow: 5px 5px 10px rgba(158, 236, 27, 0.5), -5px -5px 10px rgba(42, 229, 21, 0.5), inset 5px 5px 10px rgba(158, 236, 27, 0.5), inset -5px -10px 10px rgba(42, 229, 21, 0.5); }
+  .CourseDetail article {
+    padding: 3rem;
+    margin: 0 auto; }
+    .CourseDetail article img {
+      width: 100%; }
+
+/*# sourceMappingURL=education.css.map */

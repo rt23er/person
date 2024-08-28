@@ -1,0 +1,138 @@
+
+$primaryColor:rgb(0, 150, 136);
+$bgColor:rgb(255, 255, 255);
+$textColor:rgb(0, 0, 0);
+
+// 定义 round-btn mixin
+@mixin round-btn($left, $top, $width, $height, $background) {
+  content: "";
+  position: absolute;
+  left: $left;
+  top: $top;
+  width: $width;
+  height: $height;
+  background-color: $background;
+  border-radius: 50%;
+}
+
+.container {
+}
+
+h3 {
+  margin: 20px 0;
+  color: $primaryColor !important;
+  font-size: 1.5rem;
+}
+
+
+.experience {
+
+  border-left: 3px solid $primaryColor;
+  padding: 0 30px;
+  margin-left: 20rem;
+  @media (max-width: 767px) {
+    margin-left: 0;
+    padding-right: 0;
+  }
+  .item {
+    position: relative;
+    margin-bottom: 40px;
+    &::before {
+      @include round-btn(-43px, 0, 22px, 22px, $bgColor);
+      border: 3px solid $primaryColor;
+    }
+    &::after {
+      @include round-btn(-37px, 6px, 10px, 10px, $primaryColor);
+    }
+  }
+  .company-name {
+    color: $primaryColor;
+  }
+  .location {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    .fa {
+      margin-right: 8px;
+    }
+  }
+  .job-info {
+    position: absolute;
+    left: -20rem;
+    top: 0;
+    .title {
+      color: $primaryColor;
+    }
+    @media (max-width: 767px) {
+      position: static;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+
+// curse 课程
+.container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  gap: 1rem;
+}
+.courseItem{
+  display: flex;
+  flex-direction: row;
+  width: 50rem;
+  justify-content: space-between;
+  border: 1px solid rgb(0, 150, 136);
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  img{
+    width: 10rem;
+  }
+  p {
+    color: white;
+  }
+
+
+}
+
+
+//
+.CourseDetail {
+  width: 100%;
+  border: 1px solid rgb(0, 150, 136);
+  padding: 1rem;
+   .courseItem {
+     width: 100%;
+     border: 0;
+   }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem ;
+    span {
+      font-size: 0.8rem;
+      font-weight: bold;
+      background: aquamarine;
+      border-radius: 0.3rem;
+      padding:0 1rem;
+      box-shadow: 5px 5px 10px rgba(158, 236, 27, 0.5), -1px -1px 10px rgba(42, 229, 21, 0.5);
+      cursor: pointer;
+    }
+    .active {
+      box-shadow: 5px 5px 10px rgba(158, 236, 27, 0.5), -5px -5px 10px rgba(42, 229, 21, 0.5) ,
+      inset 5px 5px 10px rgba(158, 236, 27, 0.5), inset -5px -10px 10px rgba(42, 229, 21, 0.5)
+    ;
+
+    }
+  }
+  article {
+    padding: 3rem;
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+}

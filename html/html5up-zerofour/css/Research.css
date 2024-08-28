@@ -1,0 +1,26 @@
+.content {
+  padding: 1rem;
+  color: white; }
+  .content img {
+    width: 100%; }
+  .content .flex {
+    display: flex;
+    gap: 1rem; }
+    .content .flex .img {
+      height: 20rem; }
+      .content .flex .img img {
+        height: 100%; }
+  .content strong {
+    color: #009688; }
+  .content h2 {
+    color: #50a1cf; }
+  .content h3 {
+    color: #009688; }
+  .content li {
+    color: #009688; }
+  .content a {
+    text-underline-position: left;
+    color: #50a1cf;
+    text-decoration: underline; }
+
+/*# sourceMappingURL=Research.css.map */

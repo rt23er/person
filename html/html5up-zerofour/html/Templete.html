@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Main Course</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <link rel="stylesheet" href="../css/education.css">
+
+    <script src="../js/vue.js">
+
+    </script>
+</head>
+<body class="homepage is-preload">
+
+
+<div id="app">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header-wrapper">
+            <div class="container">
+
+                <!-- Header -->
+                <header id="header">
+                    <div class="inner">
+
+                        <!-- Logo -->
+                        <h1><a href="index.html" id="logo">PERSONAL SITE</a></h1>
+
+                        <!-- Nav -->
+                        <nav id="nav">
+                            <ul>
+                                <li class="current_page_item"><a href="index.html">Home</a></li>
+                                <li>
+                                    <a href="#">Education</a>
+                                    <ul>
+                                        <li><a href="#">Educational Background</a></li>
+                                        <li><a href="#">Main Course</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="left-sidebar.html">Work</a>
+                                    <ul>
+                                        <li><a href="#">Internship</a></li>
+                                        <li><a href="#">Full-time Job</a></li>
+                                    </ul>
+
+                                </li>
+                                <li><a href="right-sidebar.html">Research</a>
+                                    <ul>
+                                        <li><a href="#">Research Interests</a></li>
+                                        <li><a href="#">Paper Collection</a></li>
+                                        <li><a href="#">Paper Reviews</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="no-sidebar.html">Publication</a></li>
+                                <li><a href="no-sidebar.html">Blog</a></li>
+                                <li><a href="no-sidebar.html">Life</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </header>
+
+                <!-- Banner -->
+
+                <!--      时间线-->
+                <div class="container2">
+                    <div class="CourseDetail" v-for="item in courselist.slice(0,1)">
+                        <div class="courseItem">
+                            <div class="courseImg">
+                                <img :src="item.img" alt="">
+                            </div>
+                            <div class="left">
+                                <div>
+                                    <h3>{{item.title}}</h3>
+                                </div>
+                                <div>
+                                    <p>{{item.des}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <nav>
+                            <span>
+                                Course Description
+                            </span>
+
+                            <span>
+                                Course Outline
+                            </span>
+
+                            <span>
+                                Course Evaluation
+                            </span>
+
+                            <span>
+                                Course Project
+                            </span>
+
+                            <span>
+                                Course Project
+                            </span>
+
+                        </nav>
+                        <article style="text-align: left ; color: #00B050">
+                            <h3>
+                                Instructor: Nima Doroud
+                            </h3>
+                            <img src="../Resource/course4/d1.png" alt="">
+
+
+
+
+                        </article>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'Hello Vue!',
+            courseDetail: {},
+            courselist: [
+                {
+                    title: 'BA810-Machine Learning for Business Analytics',
+                    img: '../images/book1.png',
+                    des: "This course will teach students how to perform hands-on analytics on such datasets using modern\n" +
+                        "machine learning techniques through series a lectures and in- class team exercises. Students will\n" +
+                        "analyze data using the R programming language, derive actionable insights from the data, and\n" +
+                        "present their findings. The goal of the course is to create an understanding of modern analytics\n" +
+                        "methods, and the types of problems they can be applied to. The course is open to students with\n" +
+                        "or without a technical background who are interested in analytics. While no prior programming\n" +
+                        "experience is required, students will learn the fundamentals of the R programming language to build\n" +
+                        "and evaluate predictive models."
+                },
+                {
+                    title: "BA865-Advanced Analytics I (Introduction to Neural Networks in Python)",
+                    img: '../images/book2.png',
+                    des: "This course will introduce you to neural networks using the Python programming language in Keras. \n" +
+                        "The course will focus on the theory of Neural Networks and Deep Learning concepts and \n" +
+                        "implementation in Keras. The material will be presented through a combination of lecture slides \n" +
+                        "interactive python notebooks (Google Colab)"
+                }
+                , {
+                    title: "BA870-Topics in Financial and Accounting Analytics",
+                    img: '../images/book3.png',
+                    des: " The primary objective of this course is to introduce Questrom MSBA\n" +
+                        "students to key financial and accounting (F&A) concepts, data sources and data \n" +
+                        "analytics tools to solve real and important F&A problems. The course builds on Questrom\n" +
+                        "MSBA students’ prior statistical, data science and programming courses for F&A \n" +
+                        "applications and problems. In addition, we introduce new complementary tools and data \n" +
+                        "sources to students’ analytics toolkit using Python applications and databases (including \n" +
+                        "BERT, ScikitLearn, Google Colab, WRDS, Yahoo Finance, and SEC_Edgar). The course \n" +
+                        "is designed for business-focused data scientists/analysts who will have to identify, gather, \n" +
+                        "parse, analyze and present F&A data to understand, solve and communicate solutions\n" +
+                        "for real business problems. The course is designed to be “hands on” and involves many \n" +
+                        "example applications and cases."
+                },
+                {
+                    title: "BA885-Advanced Analytics II",
+                    img: '../images/book4.png',
+                    des: "This course will build on BA865 by going deeper into various aspects of Neural Networks and Deep\n" +
+                        "Learning. Our programming language of choice will be Python and we will primarily use TensorFlow/Keras\n" +
+                        "for implementing Deep Learning models."
+                }
+            ]
+        }
+    })
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.dropotron.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+    });
+</script>
+</body>
+</html>

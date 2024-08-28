@@ -1,0 +1,36 @@
+.content {
+  padding: 1rem;
+  color: white;
+
+  img {
+    width: 100%;
+  }
+  .flex {
+    display: flex;
+    gap: 1rem;
+    .img {
+      height: 20rem;
+      img {
+        height: 100%;
+      }
+    }
+  }
+  strong  {
+    color: rgb(0, 150, 136);
+  }
+
+  h2 {
+    color: #50a1cf;
+  }
+  h3 {
+    color: rgb(0, 150, 136);
+  }
+  li {
+    color: rgb(0, 150, 136);
+  }
+  a {
+    text-underline-position: left;
+    color: #50a1cf;
+    text-decoration: underline;
+  }
+}
